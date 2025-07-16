@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Favorite Animal - Fox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Favorite Animal: The Fox</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>About Foxes</h2>
+            <p>Foxes are small to medium-sized, omnivorous mammals belonging to several genera of the family Canidae. They are known for their intelligence, adaptability, and bushy tails. The most common and widespread species is the red fox (<em>Vulpes vulpes</em>).</p>
+            <ul>
+                <li><strong>Habitat:</strong> Foxes live in diverse environments, including forests, grasslands, mountains, and even urban areas.</li>
+                <li><strong>Diet:</strong> They are omnivores, eating fruits, insects, small mammals, and birds.</li>
+                <li><strong>Behavior:</strong> Foxes are mostly nocturnal and are known for their cunning and playful nature.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Fox Gallery</h2>
+            <div id="fox-gallery"></div>
+                <img id="fox-image" src="https://images.pexels.com/photos/2295744/pexels-photo-2295744.jpeg?auto=compress&w=600&q=80" alt="Red fox standing on grass" style="max-width:100%;border-radius:8px;margin-bottom:1rem;">
+                <div style="margin-top:0.5rem;">
+                    <button id="prev-fox">Previous</button>
+                    <button id="next-fox">Next</button>
+                </div>
+            </div>
+            <script>
+            const foxImages = [
+                {
+                    src: "https://images.pexels.com/photos/2295744/pexels-photo-2295744.jpeg?auto=compress&w=600&q=80",
+                    alt: "Red fox standing on grass"
+                },
+                {
+                    src: "https://images.pexels.com/photos/110820/pexels-photo-110820.jpeg?auto=compress&w=600&q=80",
+                    alt: "Fox looking at camera"
+                },
+                {
+                    src: "https://images.pexels.com/photos/45170/fox-wildlife-nature-animals-45170.jpeg?auto=compress&w=600&q=80",
+                    alt: "Fox in the wild"
+                }
+            ];
+            let currentFox = 0;
+            const foxImg = document.getElementById('fox-image');
+            document.getElementById('prev-fox').onclick = function() {
+                currentFox = (currentFox - 1 + foxImages.length) % foxImages.length;
+                foxImg.src = foxImages[currentFox].src;
+                foxImg.alt = foxImages[currentFox].alt;
+            };
+            document.getElementById('next-fox').onclick = function() {
+                currentFox = (currentFox + 1) % foxImages.length;
+                foxImg.src = foxImages[currentFox].src;
+                foxImg.alt = foxImages[currentFox].alt;
+            };
+            </script>
+            <p>After one attempt of finding pictures of foxes that resulted in two landscapes and a dog,the second attempt has found one fox, a pig, and a picture that does not exist.</p>
+        </section>
+        <section>
+            <h2>Fun Facts</h2>
+            <ul>
+                <li>Foxes use over 40 different sounds to communicate.</li>
+                <li>They have excellent hearing and can hear rodents digging underground.</li>
+                <li>Foxes are found on every continent except Antarctica.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
